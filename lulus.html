@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Lulus!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container lulus-page">
+        <h1>Selamat!</h1>
+        <div id="info-kelulusan"></div>
+        <p>Semoga sukses selalu di masa depan!</p>
+    </div>
+    <audio id="backsound" src="tabidachi_no_uta.mp3" loop></audio>
+    <script>
+        const backsound = document.getElementById('backsound');
+        backsound.play();
+
+        // Mendapatkan informasi nama dari localStorage (setelah login berhasil)
+        const namaLulus = localStorage.getItem('namaLulus');
+        const infoKelulusanDiv = document.getElementById('info-kelulusan');
+        if (namaLulus) {
+            infoKelulusanDiv.textContent = `Selamat, ${namaLulus}! Anda telah dinyatakan lulus dari [Nama Sekolah] angkatan [Tahun Lulus].`;
+        } else {
+            // Jika tidak ada nama, mungkin belum login, arahkan kembali ke halaman login
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
